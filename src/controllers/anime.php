@@ -2,7 +2,8 @@
 class Anime extends Controller{
     function index()
     {
-        $this->view("animepage");
+        $this->view("mainlayout", [
+            "Page" => "animepage", ]);
     }
     function search($i) {
         $anisearch = $this ->model("anime"."models");

@@ -12,10 +12,10 @@
     </style>
 </head>
 <body>
-    <div id="header"></div>
-    <div id="content">
-        <?php require_once "./src/views/pages/".$data["Page"].".php" ?>
-    </div>
-    <div id="footer"></div>
+<div id="header"></div>
+<div id="content">
+    <?php require_once "./src/views/pages/error/".$data["Page"].".php" ?>
+</div>
+<div id="footer"></div>
 </body>
 </html>

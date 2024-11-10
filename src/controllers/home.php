@@ -16,4 +16,12 @@ class Home extends controller{
             "Page"=>"register"
         ]);
     }
+    function profile(){
+        $user = $this->model("usermodel");
+        #echo $this->model("usermodel");
+        $this->view("mainlayout", [
+            "User"=>$user->getuserinfo(),
+            "Page"=>"userpage"
+        ]);
+    }
 }

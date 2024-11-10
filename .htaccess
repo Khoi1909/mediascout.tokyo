@@ -3,3 +3,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php?url=$1
 Options -Indexes
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ /home [L,R=301]
