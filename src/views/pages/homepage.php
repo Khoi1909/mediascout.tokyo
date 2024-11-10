@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMDb: Ratings, Reviews, and Where to Watch the Best Anime</title>
     <link rel="stylesheet" href="assets/CSS/styles.css">
-    <link rel="icon" href="./icon.ico" type="image/x-icon">
-
 </head>
 <body>
 
