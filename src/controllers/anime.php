@@ -3,11 +3,11 @@ class Anime extends Controller{
     function index()
     {
         $this->view("mainlayout", [
-            "Page" => "animepage", ]);
+            "Page" => "animes", ]);
     }
-    function search($i) {
-        $anisearch = $this ->model("anime"."models");
-        $animeID = $anisearch -> animesearching($i);
-        $this->view("resultpage", ["ID"=>$animeID]);
-    }
+//    function search($i) {
+//        $anisearch = $this ->model("anime"."models");
+//        $animeID = $anisearch -> animesearching($i);
+//        $this->view("result", ["ID"=>$animeID]);
+//    }
 }

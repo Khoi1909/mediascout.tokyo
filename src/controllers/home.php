@@ -3,7 +3,7 @@ class Home extends controller{
     function Index(){
         #$indexpage= $this->model("homepage"."models");
         $this->view("mainlayout", [
-            "Page"=>"homepage"
+            "Page"=>"home"
         ]);
     }
     function login(){
@@ -16,12 +16,12 @@ class Home extends controller{
             "Page"=>"register"
         ]);
     }
-    function profile(){
-        $user = $this->model("usermodel");
-        #echo $this->model("usermodel");
-        $this->view("mainlayout", [
-            "User"=>$user->getuserinfo(),
-            "Page"=>"userpage"
-        ]);
-    }
+//    function profile(){
+//        $user = $this->model("usermodel");
+//        #echo $this->model("usermodel");
+//        $this->view("mainlayout", [
+//            "User"=>$user->getuserinfo(),
+//            "Page"=>"userpage"
+//        ]);
+//    }
 }
