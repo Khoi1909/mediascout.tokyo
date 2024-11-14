@@ -6,16 +6,8 @@ class Home extends controller{
             "Page"=>"home"
         ]);
     }
-    function login(){
-        $this->view("loginlayout", [
-            "Page"=>"login"
-        ]);
-    }
-    function register(){
-        $this->view("loginlayout", [
-            "Page"=>"register"
-        ]);
-    }
+
+
 //    function profile(){
 //        $user = $this->model("usermodel");
 //        #echo $this->model("usermodel");

@@ -37,6 +37,6 @@ class App{
         if( isset($_GET["url"]) ){
             return explode("/", filter_var(trim($_GET["url"], "/")));
         }
-    }
+       }
 
 }
