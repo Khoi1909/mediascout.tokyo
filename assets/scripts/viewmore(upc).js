@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const offset = (page - 1) * itemsPerPage; // Tính toán offset
-        fetch(`http://localhost:3000/anime/recommendations/upcoming?limit=${itemsPerPage}&offset=${offset}`)
+        fetch(`https://data.mediascout.tokyo/anime/recommendations/upcoming?limit=${itemsPerPage}&offset=${offset}`)
             .then(response => response.json())
             .then(data => {
                 console.log('Data returned from API:', data);

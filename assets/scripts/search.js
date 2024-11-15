@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Searching for:", searchText);
 
             // Gọi API tìm kiếm anime từ server của bạn
-            fetch(`http://localhost:3000/anime/search?q=${encodeURIComponent(searchText)}&offset=0`, {
+            fetch(`https://data.mediascout.tokyo/anime/search?q=${encodeURIComponent(searchText)}&offset=0`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (searchText.length > 0) {
             // Gọi API gợi ý anime từ server của bạn
-            fetch(`http://localhost:3000/anime/suggest?q=${encodeURIComponent(searchText)}&limit=${limit}&fields=${fields}`, {
+            fetch(`https://data.mediascout.tokyo/anime/suggest?q=${encodeURIComponent(searchText)}&limit=${limit}&fields=${fields}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

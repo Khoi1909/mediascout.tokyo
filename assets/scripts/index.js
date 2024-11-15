@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Fetch anime data for each section
-    fetchAnimeData('http://localhost:3000/anime/recommendations/upcoming', 0);
-    fetchAnimeData('http://localhost:3000/anime/recommendations/bypopularity', 1);
-    fetchAnimeData(`http://localhost:3000/anime/season?year=${currentYear}&season=${currentSeason}`, 2);
+    fetchAnimeData('https://data.mediascout.tokyo/anime/recommendations/upcoming', 0);
+    fetchAnimeData('https://data.mediascout.tokyo/anime/recommendations/bypopularity', 1);
+    fetchAnimeData(`https://data.mediascout.tokyo/anime/season?year=${currentYear}&season=${currentSeason}`, 2);
 
     // Function to fetch anime data
     function fetchAnimeData(url, index) {

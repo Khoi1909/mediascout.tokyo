@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (page > totalPages || page < 1) return;
 
         const offset = (page - 1) * itemsPerPage;
-        fetch(`http://localhost:3000/anime/season?year=${year}&season=${season}&offset=${offset}`)
+        fetch(`https://data.mediascout.tokyo/anime/season?year=${year}&season=${season}&offset=${offset}`)
            .then(response => {
            if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         updateHeader(seasonMapping[season]);
-        fetch(`http://localhost:3000/anime/season?year=${year}&season=${season}&offset=0`)
+        fetch(`https://data.mediascout.tokyo/anime/season?year=${year}&season=${season}&offset=0`)
             .then(response => response.json())
             .then(data => displayAnimeList(data))
             .catch(error => console.error('Error fetching API:', error));
