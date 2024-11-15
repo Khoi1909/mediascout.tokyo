@@ -1,9 +1,9 @@
 <?php
 // Database connection for MySQL
-$host = "localhost";
-$dbname = "db"; // Change to your database name
-$username = "root"; // Change if necessary
-$password = ""; // Change if necessary
+$host = "db.mediascout.tokyo";
+$dbname = "mediascout"; // Change to your database name
+$username = "mediascout"; // Change if necessary
+$password = "media123scout"; // Change if necessary
 
 try {
     // Establish connection with MySQL
