@@ -1,7 +1,7 @@
 <?php
 class App{
 
-    protected $controller="Home";
+    protected $controller="Error404"; //Để 404 thay cho home -> chuyển hướng ng dùng nhập url bậy
     protected $action="Index";
     protected $params=[];
 

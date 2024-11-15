@@ -1,3 +1,4 @@
+<?php include 'header.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>MediaScout</title>
     <link rel="icon" href="./icon.ico" type="image/x-icon">
-    <style>
-        div{padding:40px}
-        #header, #footer{background-color:black;}
-    </style>
+    <link rel="stylesheet" href="/public/styles/MainLayout.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
 </head>
 <body>
-    <div id="header"></div>
     <div id="content">
-        <?php require_once "./src/views/pages/".$data["Page"].".php" ?>
+        <?php
+        include 'navbar.php';
+        require_once "./src/views/pages/".$data["Page"].".php";
+//        include 'leftSide.php';
+//        include 'rightside.php';
+         ?>
     </div>
-    <div id="footer"></div>
 </body>
 </html>
+<?php include 'footer.php';

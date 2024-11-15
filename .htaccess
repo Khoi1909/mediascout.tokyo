@@ -1,7 +1,10 @@
+#url process
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php?url=$1
+#không cho xâm nhập file
 Options -Indexes
+#nhập domain là tự ra /home
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule ^ /home [L,R=301]
