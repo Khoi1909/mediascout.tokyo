@@ -1,0 +1,137 @@
+    /* General Layout Adjustments */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Nền đen */
+    color: #fff; /* Chữ trắng */
+}
+
+/* Recommendation Section */
+.AnimeDisplay {
+    padding: 20px;
+    background-color: #333;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.AnimeDisplay h2 {
+    margin-bottom: 20px;
+}
+
+.anime-slider-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.anime-slider {
+    display: flex;
+    width: 90%; /* Giảm một chút chiều rộng slider nếu cần */
+    gap: 10px; /* Khoảng cách 10px giữa các ảnh */
+}
+
+.anime-item {
+    flex: 0 0 24%; /* Giảm chiều rộng mỗi ảnh để vừa với khoảng trống */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.anime-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.anime-info {
+    width: 140px;
+    text-align: center;
+    padding: 10px 0;
+    color: #fff;
+}
+
+.see-more-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#seeMoreBtn {
+    background-color: #ff8c00; /* Màu nền cho nút */
+    color: white; /* Màu chữ */
+    padding: 10px 20px;
+    text-decoration: none; /* Bỏ gạch chân */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#seeMoreBtn:hover {
+    background-color: #ff6f00; /* Màu nền thay đổi khi hover */
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+}
+
+/* Anime hover effect */
+.anime-item:hover {
+    opacity: 0.8; /* Giảm độ mờ khi hover */
+    transform: scale(1.05); /* Tăng nhẹ kích thước khi hover */
+}
+
+/* Section for 'See More' */
+#anime-view-more {
+    margin-top: 20px;
+}
+
+#anime-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.anime-card {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 200px; /* Mỗi anime chiếm khoảng 200px */
+    background-color: #f9f9f9;
+}
+
+.anime-card-img {
+    height: 100%;
+    width: auto;
+    border-radius: 5px;
+}
+
+

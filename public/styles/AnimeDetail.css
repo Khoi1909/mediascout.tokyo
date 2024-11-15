@@ -1,0 +1,59 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #333;
+}
+
+.anime-detail {
+    display: flex; /* Sử dụng flexbox để tạo layout */
+    flex-direction: column; /* Đặt chiều dọc cho flex container */
+    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+    max-width: 600px; /* Giới hạn chiều rộng tối đa */
+    margin: auto; /* Căn giữa trang */
+    background: white; /* Nền trắng cho khối nội dung */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    padding: 20px; /* Padding cho nội dung */
+}
+
+.anime-detail img {
+    width: 500px; /* Chiều rộng hình ảnh */
+    height: 300px; /* Chiều cao hình ảnh */
+    border-radius: 8px; /* Bo góc cho hình ảnh */
+}
+
+.anime-info {
+    text-align: center; /* Căn giữa văn bản */
+    margin-top: 10px; /* Khoảng cách trên cho thông tin anime */
+}
+
+.anime-info h1 {
+    margin: 0; /* Bỏ margin cho tiêu đề */
+    font-size: 24px; /* Kích thước chữ cho tiêu đề */
+}
+
+.anime-info p {
+    margin: 5px 0; /* Khoảng cách giữa các đoạn văn */
+}
+
+.anime-detail h2 {
+    margin-top: 20px; /* Khoảng cách trên cho tiêu đề tóm tắt */
+}
+
+.anime-detail a {
+    display: inline-block; /* Hiển thị dưới dạng khối */
+    margin-top: 20px; /* Khoảng cách trên cho liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+    color: #007BFF; /* Màu chữ cho liên kết */
+}
+
+.anime-detail a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+#anime-synopsis {
+    margin-top: 20px; /* Khoảng cách trên cho mô tả */
+    text-align: justify; /* Căn giữa văn bản mô tả */
+}

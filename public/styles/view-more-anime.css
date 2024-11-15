@@ -1,0 +1,101 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Nền đen */
+    color: #000000; /* Chữ trắng */
+}
+h2{
+    color:#fff;
+    align-items: center;
+}
+
+/* Danh sách anime */
+/* Danh sách anime */
+.anime-list {
+    padding: 20px;
+    background-color: #444; /* Màu nền cho danh sách anime */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex; /* Sử dụng flexbox để sắp xếp theo chiều dọc */
+    flex-direction: column; /* Đặt chiều dọc cho danh sách */
+    gap: 15px; /* Khoảng cách giữa các item */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.anime-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.anime-item img {
+    width: 100px; /* Đặt chiều rộng cụ thể cho hình ảnh */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    border-radius: 8px;
+    margin-right: 15px; /* Khoảng cách giữa hình ảnh và thông tin */
+}
+
+.anime-info {
+    display: flex;
+    font-size: 15px;
+    flex-direction: column; /* Đặt thông tin anime theo chiều dọc */
+}
+
+.anime-info h3 {
+    font-size: 15px; /* Kích thước chữ tiêu đề */
+    margin: 0 0 5px; /* Khoảng cách giữa tiêu đề và mô tả */
+}
+
+.anime-info p {
+    margin: 0;
+    color: #666; /* Màu chữ cho mô tả */
+}
+/* Pagination buttons */
+#pagination {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.page-btn {
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page-btn.active {
+    background-color: orange; /* Màu cam khi active */
+    color: white;
+}
+
+.page-btn:hover {
+    background-color: #ddd; /* Khi hover vào nút sẽ có hiệu ứng */
+}
+#searchSection {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#yearInput,
+#seasonInput {
+    width: 100px;
+    padding: 5px;
+}
+
+#fetchAnimeButton {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
