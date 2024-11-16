@@ -1,6 +1,7 @@
 <?php
 class login extends Controller{
     function index(){
+        $this->model("login");
         $this->view("loginlayout", [
             "Page"=>"login"
         ]);
