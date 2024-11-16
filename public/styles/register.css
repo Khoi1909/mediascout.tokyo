@@ -36,20 +36,9 @@ button {
     font-size: 16px;
 }
 
-.google-button {
-    background-color: white; 
-    color: black;
-    border: 1px solid #dcdde1; 
-}
-
-.login-button, .create-account-button {
+.create-account-button {
     background-color: #4A90E2;
     color: white;
-}
-
-.signup-button {
-    background-color: #d3d3d3;
-    color: black;
 }
 
 form {
@@ -89,10 +78,13 @@ p {
     color: #666;
 }
 
+
 .error {
     color: red;
     font-weight: bold;
     margin: 10px 0;
+    position: absolute;
+    top: 40px; 
     text-align: center;
 }
 
@@ -100,5 +92,7 @@ p {
     color: green;
     font-weight: bold;
     margin: 10px 0;
+    position: absolute;
+    top: 40px; 
     text-align: center;
 }
