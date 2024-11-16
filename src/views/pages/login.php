@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/public/styles/login_signup.css">
+    <link rel="stylesheet" href="/public/styles/login.css">
 </head>
 <body>
     <div class="container">
         <h2>Login to MediaScout</h2>
         <hr>
-        <form method="POST" action="">
+        <form method="POST" action="/login">
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
             

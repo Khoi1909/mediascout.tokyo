@@ -4,22 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/public/styles/login_signup.css">
+    <link rel="stylesheet" href="/public/styles/register.css">
 </head>
 <body>
-    <div class="container">        
+    <div class="container">      
         <h2>Start Using MediaScout</h2>
         <hr>
-        
-        <?php if (isset($error_message)): ?>
-        <p class="error"><?php echo $error_message; ?></p>
-        <?php endif; ?>
-
-        <?php if (isset($success_message)): ?>
-        <p class="success"><?php echo $success_message; ?></p>
-        <?php endif; ?>
-
-        <form method="POST" action="../../../index.php">
+        <form method="POST" action="/register">
             <label for="email">Email</label>
             <input type="email" id="email" name="email">
             
@@ -36,7 +27,7 @@
             
             <button type="submit" name="submit" class="create-account-button">Create Account</button>
         </form>
-        <p>Already have an account? <a href="../../../index.php">Login</a></p>
+        <p>Already have an account? <a href="/login">Login</a></p>
     </div>
 
     <script src="/assets/scripts/login_signup.js"></script>

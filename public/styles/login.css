@@ -1,80 +1,93 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+* {
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000;
 }
 
-.login-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 300px;
-    z-index: 2;
-}
-
-.login-box label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-box .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.login-box a {
-    color: #0066cc;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-box a:hover {
-    text-decoration: underline;
-}
-
-.login-box button {
-    padding: 10px 20px;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-box button:hover {
-    background-color: #005bb5;
-}
-
-#message {
-    margin-top: 10px;
-    font-size: 14px;
+.container {
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 8px;
     text-align: center;
 }
 
-.success-message {
-    color: green;
+h2 {
+    font-size: 18px;
+    margin: 0 0 20px;
 }
 
-.error-message {
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.signup-button {
+    background-color: #d3d3d3;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #dcdde1;
+    border-radius: 4px;
+}
+
+#showPassword {
+    margin-left: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #dcdde1;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 12px;
+    color: #666;
+}
+
+.error {
     color: red;
+    font-weight: bold;
+    margin: 10px 0;
+    position: absolute;
+    top: 70px; 
+    text-align: center;
 }
