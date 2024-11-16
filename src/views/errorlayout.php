@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>MediaScout</title>
-    <link rel="icon" href="./icon.ico" type="image/x-icon">
+    <link rel="icon" href="../../public/icon.ico" type="image/x-icon">
     <style>
         div{padding:40px}
         #header, #footer{background-color:black;}

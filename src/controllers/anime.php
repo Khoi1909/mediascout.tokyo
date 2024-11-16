@@ -3,12 +3,31 @@ class Anime extends Controller{
     function index()
     {
         $this->view("mainlayout", [
-            "Page" => "animes", ]);
+            "Page" => "home", ]);
     }
-    function Popular()
+    function info($id) {
+        $this->view("mainlayout", [
+            "Page"=>"anime-details",
+            "animeid"=> $id,
+        ]);
+    }
+    function search()
     {
         $this->view("mainlayout", [
-            "Page" => "view-popular",
+            "Page"=>"search",
+        ]);
+    }
+    function result($query)
+    {
+        $this->view("mainlayout", [
+            "Page"=>"search-result",
+            "animeName"=> $query,
+        ]);
+    }
+    function TopRated()
+    {
+        $this->view("mainlayout", [
+            "Page" => "view-top-rated",
         ]);
     }
     function Upcoming(){
@@ -23,9 +42,4 @@ class Anime extends Controller{
             "Page" => "view-seasonal",
         ]);
     }
-//    function search($i) {
-//        $anisearch = $this ->model("anime"."models");
-//        $animeID = $anisearch -> animesearching($i);
-//        $this->view("result", ["ID"=>$animeID]);
-//    }
 }

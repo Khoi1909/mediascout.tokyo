@@ -1,0 +1,101 @@
+/* General container styles */
+.upcoming-animes,
+.top-rated-animes,
+.anime-season {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333333; /* Updated background color */
+    color: #ffffff; /* Ensuring text remains visible on dark background */
+    border-radius: 8px;
+    max-width: 1000px;
+    overflow: hidden; /* Hides overflow to make carousel effect */
+    text-align: center;
+}
+
+/* Adjust carousel item styles for visibility */
+.anime-item h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #ffffff; /* Ensure text is readable on dark background */
+}
+
+.anime-item {
+    background-color: #444444; /* Slightly lighter background for anime items */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* (Optional) If you want to change the space between Upcoming and Top Rated */
+.upcoming-animes + .top-rated-animes + .anime-season {
+    margin-top: 40px;
+}
+
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+/* Carousel itself */
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+
+}
+
+/* Each anime item */
+.anime-item {
+    text-align: center;
+    flex: 0 0 auto; /* Prevent items from resizing */
+    width: 180px;
+}
+
+.anime-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.3); /* Adjusted for dark background */
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    user-select: none;
+}
+
+/* Left arrow */
+.left-arrow {
+    left: 10px;
+}
+
+/* Right arrow */
+.right-arrow {
+    right: 10px;
+}
+
+/* Arrow hover effect */
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Enhanced hover visibility */
+}
+
+/* (Optional) If you want to increase the gap between the carousel items */
+.carousel {
+    gap: 20px; /* Adjust as needed for spacing between the anime items */
+}
+a {
+    text-decoration: none;
+    color: white;
+}

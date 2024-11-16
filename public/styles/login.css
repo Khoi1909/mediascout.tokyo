@@ -2,17 +2,16 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #000;
+    height: 100vh;
+    margin: 0; /* Remove default body margin */
+    background-color: #121212; /* Matches your theme */
 }
-
 .container {
+    ;
     width: 400px;
     padding: 20px;
     background-color: white;

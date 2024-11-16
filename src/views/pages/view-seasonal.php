@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xem Thêm Anime</title>
     <link rel="stylesheet" href="/public/styles/view-more-anime.css">
+    <link rel="icon" href="../../../public/icon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="layout">
@@ -26,5 +27,6 @@
         </div>
     </div>
     <script src="/assets/scripts/viewmore(season).js"></script>
+    <script src="/assets/scripts/getid.js"></script>
 </body>
 </html>

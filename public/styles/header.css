@@ -1,0 +1,229 @@
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #121212;
+    height: 100%;
+}
+
+/* Content Wrapper */
+header, #content {
+    width: auto;
+}
+.content{
+    flex: 1;
+}
+/* Header Styles */
+header {
+    background-color: #333333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #555; /* 2px border to split header and navbar */
+}
+
+/* Header Container (Logo and User Info) */
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Adds 50px space on left and right */
+}
+
+/* Logo Styles */
+.logo{
+    margin: 20px;
+}
+.logo a {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+
+}
+
+/* User Info Section (Login Button) */
+.user-info {
+    display: flex;
+    padding-right: 50px;
+}
+
+/* Login Button Styles */
+.login-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 16px;
+    background-color: #222222;
+    border-radius: 25px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #2f3a4d; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+/* Logged In User Section */
+.user-logged-in {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Preserve text color */
+}
+
+.user-logged-in:hover {
+    opacity: 0.8; /* Optional hover effect */
+}
+
+.user-logged-in .header-profile-picture {
+    width: 40px; /* Adjust as needed */
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.username {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.header-profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar List */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin-left: 15px;
+    padding: 0;
+}
+
+/* Navbar Items */
+.navbar li {
+    margin-right: 20px;
+}
+
+/* Navbar Links (Buttons) */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 25px;
+}
+
+.navbar a:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Navbar Search Container */
+.search-container {
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    padding: 10px;
+    width: 300px;
+    font-size: 14px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333333;
+    color: #878787; /* Text color */
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px; /* Adds spacing between content and footer */
+}
+
+/* Footer Links Section */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #878787; /* Text color */
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: white; /* Change color on hover */
+}
+
+/* Footer Text Section */
+.footer-text p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar li {
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .login-btn {
+        padding: 8px 15px;
+    }
+    .footer-link {
+        font-size: 14px;
+    }
+
+    .footer-text p {
+        font-size: 12px;
+    }
+}

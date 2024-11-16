@@ -1,0 +1,75 @@
+/* Profile Page Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px); /* Adjust for header/footer */
+    background-color: #121212;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Profile Card */
+.profile-card {
+    text-align: center;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-bottom: 20px;
+}
+
+/* User Info */
+.profile-card h1 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.edit-profile-btn,
+.logout-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.logout-btn {
+    background-color: #ff5e57;
+}
+
+.edit-profile-btn:hover {
+    background-color: #2563eb;
+}
+
+.logout-btn:hover {
+    background-color: #ff2d20;
+}
+
+/* Logout Form */
+.logout-form {
+    margin-top: 20px;
+    width: 300px;
+}

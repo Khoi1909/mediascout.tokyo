@@ -1,1 +1,0 @@
-All anime page

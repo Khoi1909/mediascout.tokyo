@@ -1,0 +1,128 @@
+/* General Layout for Profile Edit Page */
+.edit-profile-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px; /* Adjusted to leave space for the header */
+    margin-bottom: 100px; /* Ensures it doesn't collide with footer */
+    padding: 30px;
+    background-color: #121212;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+/* Profile Sidebar: Profile Picture and Change Picture Section */
+.profile-sidebar {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.profile-sidebar .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 6rem;
+}
+
+.profile-sidebar .change-pfp-form {
+    margin-top: 15px;
+}
+
+.profile-sidebar .profile-pic-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.profile-sidebar .profile-pic-select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Main Content Section: Form to Edit Profile Details */
+.profile-main-content {
+    flex: 2;
+    background-color: #1c1c1c;
+    padding: 50px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.edit-profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.edit-profile-form input,
+.edit-profile-form select {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.edit-profile-form input:focus,
+.edit-profile-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Save Button Styling */
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Makes the button full-width */
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .edit-profile-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .profile-sidebar,
+    .profile-main-content {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .save-btn {
+        width: 100%; /* Ensures the button is full-width on smaller screens */
+    }
+}

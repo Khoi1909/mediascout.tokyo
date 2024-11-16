@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
 
-            if ($password === $user['password']) {  
+            if ($password === $user['password']) {
+                $_SESSION['profile_pic'] = $user['profile_pic'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['logined_in'] = true;
 
