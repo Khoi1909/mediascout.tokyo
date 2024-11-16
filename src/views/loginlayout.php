@@ -7,7 +7,9 @@
     <title>MediaScout</title>
 </head>
 <body>
-<div id="header"></div>
+<div id="header">
+    <?php require_once "./src/views/pages/".$data["Page"].".php" ?>
+</div>
 <div id="content">
     <?php require_once "./src/views/pages/".$data["Page"].".php" ?>
 </div>

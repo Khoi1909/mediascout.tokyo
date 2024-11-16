@@ -19,7 +19,7 @@
 
             <button type="submit" class="login-button">Request Password</button>
         </form>
-        <p><a href="/home" style="text-decoration: none; color: #4A90E2;">Back to Login</a></p>
+        <p><a href="/login" style="text-decoration: none; color: #4A90E2;">Back to Login</a></p>
     </div>
 </body>
 </html>
