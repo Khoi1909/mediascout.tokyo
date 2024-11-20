@@ -23,7 +23,6 @@
             
             <button type="submit" class="login-button">Login</button>
         </form>
-        <p><a href="/login/forgot_password" style="text-decoration: none; color: #4A90E2;">Forgot password?</a></p>
         <button class="signup-button" onclick="window.location.href='register'">Sign Up</button>
     </div>
     

@@ -1,113 +1,198 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const itemsPerPage = 10;
-    let currentPage = 1;
-    const currentYear = new Date().getFullYear();
-    const totalItems = 500;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    // Define constants for year and season
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear(); // Get current year
+    const currentMonth = currentDate.getMonth(); // Get current month (0-11)
 
-    // Map English season names to Vietnamese
-    const seasonMapping = {
-        spring: 'Xuân',
-        summer: 'Hè',
-        fall: 'Thu',
-        winter: 'Đông'
-    };
+    // Calculate the season based on the current month
+    const seasons = ['WINTER', 'SPRING', 'SUMMER', 'FALL']; // Define the seasons in order
+    let currentSeason;
 
-    // Function to get the current season in Vietnamese
-    function getCurrentSeason() {
-        const month = new Date().getMonth();
-        if (month >= 2 && month <= 4) return 'Xuân';
-        if (month >= 5 && month <= 7) return 'Hè';
-        if (month >= 8 && month <= 10) return 'Thu';
-        return 'Đông';
+    if (currentMonth >= 0 && currentMonth <= 2) {
+        currentSeason = 'WINTER';
+    } else if (currentMonth >= 3 && currentMonth <= 5) {
+        currentSeason = 'SPRING';
+    } else if (currentMonth >= 6 && currentMonth <= 8) {
+        currentSeason = 'SUMMER';
+    } else if (currentMonth >= 9 && currentMonth <= 11) {
+        currentSeason = 'FALL';
     }
 
-    // Function to update the header with the current season
-    function updateHeader(season = getCurrentSeason()) {
-        const headerElement = document.querySelector('.anime-list-section h2');
-        headerElement.textContent = `Danh Sách Anime của mùa ${season}`;
-    }
+    // Update the page title and section header
+    const titleElement = document.querySelector("title");
+    const headingElement = document.querySelector(".anime-list-section h2");
 
-    // Fetch and display anime data
+    titleElement.textContent = `BEST ANIME FOR ${currentSeason} ${currentYear}`;
+    headingElement.textContent = `BEST ANIME FOR ${currentSeason} ${currentYear}`;
+
+    // Set year and season constants
+    const itemsPerPage = 10; // Number of anime per page
+    let currentPage = 1; // Current page
+    const totalItems = 500; // Maximum total records allowed by the API
+    const totalPages = Math.ceil(totalItems / itemsPerPage); // Total number of pages
+
+    // Fetch anime recommendations and display them
     function fetchAnime(page) {
-        if (page > totalPages || page < 1) return;
-
-        const offset = (page - 1) * itemsPerPage;
-        fetch(`https://data.mediascout.tokyo/anime/season?year=${year}&season=${season}&offset=${offset}`)
-           .then(response => {
-           if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => displayAnimeList(data))
-        .catch(error => console.error('Error fetching anime recommendations:', error));
-
+        if (page > totalPages || page < 1) {
+            console.warn("No more pages to load.");
+            return;
+        }
+        const year = currentYear;
+        const season = currentSeason.toLowerCase();
+        const offset = (page - 1) * itemsPerPage; // Calculate offset
+        fetch(`https://data.mediascout.tokyo/anime/season/?year=${year}&season=${season}&limit=${itemsPerPage}&offset=${offset}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data returned from API:', data);
+                if (data.error) {
+                    console.error('Error fetching data:', data.error);
+                } else {
+                    displayAnimeList(data);
+                    createPagination(page);
+                    // Update browser history
+                    history.pushState({ page: page }, `Page ${page}`, `?page=${page}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching API:', error);
+            });
     }
 
-    // Display anime list
+    // Function to display anime list
     function displayAnimeList(data) {
         const animeListContainer = document.querySelector('.anime-list');
-        animeListContainer.innerHTML = '';
+        animeListContainer.innerHTML = ''; // Clear old content
 
+        console.log('Full data received:', data); // Log the data to examine structure
+
+        // Check if data.data is an array
         if (!data || !Array.isArray(data.data)) {
-            animeListContainer.innerHTML = '<p>Không có dữ liệu để hiển thị.</p>';
+            console.error('Data is not an array or data is undefined:', data.data);
             return;
         }
 
+        // Iterate over anime items
         data.data.forEach(anime => {
-            const animeImage = anime.node?.main_picture?.large || 'assets/images/default-image.jpg';
-            const animeTitle = anime.node?.title || 'Chưa có tiêu đề';
+            const animeImage = getImageSrc(anime); // Get image URL
+            const animeTitle = anime.node.title || 'No Title Available';
+            const animeId = anime.node.id; // Assuming 'id' exists in the response
 
+            // Create anime item element
             const animeItem = document.createElement('div');
             animeItem.classList.add('anime-item');
+            animeItem.setAttribute('data-id', animeId); // Set the data-id
+
             animeItem.innerHTML = `
                 <img src="${animeImage}" alt="${animeTitle}">
                 <h3>${animeTitle}</h3>
             `;
             animeListContainer.appendChild(animeItem);
         });
+
+        // Add event listeners for click handling
+        document.querySelectorAll('.anime-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const animeId = this.getAttribute('data-id'); // Get animeId
+                window.location.href = `/anime/info/${animeId}`; // Redirect to anime info page
+            });
+        });
     }
 
-    // Create pagination controls
+    // Define the getImageSrc function
+    function getImageSrc(anime) {
+        if (anime && anime.node && anime.node.main_picture && anime.node.main_picture.large) {
+            return anime.node.main_picture.large;
+        }
+        return 'assets/images/default-image.jpg'; // Default image if not available
+    }
+
+    // Function to create pagination buttons
     function createPagination(page) {
         const paginationContainer = document.getElementById('pagination');
         paginationContainer.innerHTML = '';
 
-        if (page > 1) {  // Show "Previous" button only if page is greater than 1
+        // Previous button
+        if (page > 1) {
             const prevButton = document.createElement('button');
-            prevButton.textContent = 'Trang trước';
-            prevButton.onclick = () => fetchAnime(page - 1);
+            prevButton.innerText = 'Previous Page';
+            prevButton.onclick = () => loadPage(page - 1);
             paginationContainer.appendChild(prevButton);
         }
 
-        const nextButton = document.createElement('button');
-        nextButton.textContent = 'Trang sau';
-        if (page < totalPages) {  // Show "Next" button only if page is less than total pages
-            nextButton.onclick = () => fetchAnime(page + 1);
+        // Page buttons
+        const startPage = Math.max(1, page - 1); // Start page
+        const endPage = Math.min(totalPages, page + 2); // End page
+
+        // Add page buttons
+        for (let i = startPage; i <= endPage; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.innerText = i;
+            pageButton.onclick = () => loadPage(i);
+            if (i === page) {
+                pageButton.disabled = true; // Disable current page button
+            }
+            paginationContainer.appendChild(pageButton);
         }
-        paginationContainer.appendChild(nextButton);
+
+        // Add ellipsis if needed
+        if (endPage < totalPages) {
+            const ellipsis = document.createElement('span');
+            ellipsis.innerText = '...';
+            paginationContainer.appendChild(ellipsis);
+        }
+
+        // Last page button
+        if (endPage < totalPages) {
+            const lastButton = document.createElement('button');
+            lastButton.innerText = totalPages;
+            lastButton.onclick = () => loadPage(totalPages);
+            paginationContainer.appendChild(lastButton);
+        }
+
+        // Next button
+        if (page < totalPages) {
+            const nextButton = document.createElement('button');
+            nextButton.innerText = 'Next Page';
+            nextButton.onclick = () => loadPage(page + 1);
+            paginationContainer.appendChild(nextButton);
+        }
+
+        // Input box for page number
+        const pageInput = document.createElement('input');
+        pageInput.type = 'number';
+        pageInput.min = 1;
+        pageInput.max = totalPages;
+        pageInput.placeholder = 'Enter page number';
+        paginationContainer.appendChild(pageInput);
+
+        // "Go" button to navigate to the entered page
+        const goButton = document.createElement('button');
+        goButton.innerText = 'Go';
+        goButton.onclick = () => {
+            const pageNumber = parseInt(pageInput.value);
+            if (pageNumber >= 1 && pageNumber <= totalPages) {
+                loadPage(pageNumber);
+            } else {
+                alert('Please enter a valid page number!');
+            }
+        };
+        paginationContainer.appendChild(goButton);
     }
 
-    // Handle search
-    document.getElementById('fetchAnimeButton').addEventListener('click', () => {
-        const year = document.getElementById('yearInput').value;
-        const seasonInput = document.getElementById('seasonInput').value.trim().toLowerCase();
+    // Function to load data for pagination
+    function loadPage(page) {
+        currentPage = page; // Update current page
+        fetchAnime(currentPage); // Fetch anime for the current page
+    }
 
-        const season = Object.keys(seasonMapping).find(key => seasonMapping[key].toLowerCase() === seasonInput);
-        if (!season || !year) {
-            alert('Vui lòng nhập năm và mùa hợp lệ!');
-            return;
+    // Handle when the user goes back to a previous page
+    window.onpopstate = function(event) {
+        if (event.state) {
+            currentPage = event.state.page; // Get the page from state
+            fetchAnime(currentPage); // Fetch anime for the current page
         }
+    };
 
-        updateHeader(seasonMapping[season]);
-        fetch(`https://data.mediascout.tokyo/anime/season?year=${year}&season=${season}&offset=0`)
-            .then(response => response.json())
-            .then(data => displayAnimeList(data))
-            .catch(error => console.error('Error fetching API:', error));
-    });
-
-    // Initial setup
-    updateHeader();
+    // Fetch anime for the first page on load
     fetchAnime(currentPage);
 });

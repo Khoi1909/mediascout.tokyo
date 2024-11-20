@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $result->fetch_assoc();
 
             if ($password === $user['password']) {
+                $_SESSION['displayname'] = $user['displayname']?: $user['username'] ;
                 $_SESSION['profile_pic'] = $user['profile_pic'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['logined_in'] = true;

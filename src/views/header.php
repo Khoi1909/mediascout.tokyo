@@ -10,7 +10,7 @@
             <?php if (isset($_SESSION['logined_in']) && $_SESSION['logined_in'] === true): ?>
                 <!-- Display logged-in user's name and profile picture -->
                 <a href="/profile" class="user-logged-in">
-                    <span class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    <span class="username"><?php echo htmlspecialchars($_SESSION['displayname']?:$_SESSION['username']); ?></span>
                     <img src="/public/images/pfp/<?php echo htmlspecialchars($_SESSION['profile_pic']);?>.png" alt="Profile Picture" class="header-profile-picture">
                 </a>
             <?php else: ?>
