@@ -10,6 +10,50 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/grpc/grpc" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/kreait/firebase-php" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/kreait/clock" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/kreait/firebase-tokens" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/cloud-storage" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/longrunning" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/common-protos" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/stella-maris/clock" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/gax" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/riverline/multipart-parser" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/cloud-core" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/grpc-gcp" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/google/protobuf" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/rize/uri-template" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/composer" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/Nike-Store/vendor/mtdowling/jmespath.php" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />

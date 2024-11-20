@@ -18,9 +18,6 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
             <label><input type="checkbox" id="showPassword"> Show Password</label>
-            
-            <label><input type="checkbox" id="stayLoggedIn" name="stayLoggedIn"> Stay logged in?</label>
-            
             <button type="submit" class="login-button">Login</button>
         </form>
         <button class="signup-button" onclick="window.location.href='register'">Sign Up</button>
