@@ -11,7 +11,7 @@
         <div class="body">
             <div class="container" id="contentContainer">
                 <div class="anime-list-section">
-                    <h2>Danh Sách Anime Hay Nhất Theo Người Dùng</h2>
+                    <h2>THE HIGHEST RATED ANIME OF ALL TIME</h2>
                     <div class="anime-list"></div> <!-- Đảm bảo rằng class này khớp với mã JavaScript -->
                     <!-- Pagination Section -->
                     <div id="pagination"></div>

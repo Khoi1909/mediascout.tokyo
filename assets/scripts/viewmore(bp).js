@@ -47,110 +47,121 @@ document.addEventListener("DOMContentLoaded", function () {
         data.data.forEach(anime => {
             const animeImage = getImageSrc(anime); // Lấy đường dẫn hình ảnh
             const animeTitle = anime.node.title || 'No Title Available';
+            const animeId = anime.node.id; // Assuming 'id' exists in the response
 
             // Create anime item element
             const animeItem = document.createElement('div');
             animeItem.classList.add('anime-item');
+            animeItem.setAttribute('data-id', animeId); // Set the data-id
+
             animeItem.innerHTML = `
                 <img src="${animeImage}" alt="${animeTitle}">
                 <h3>${animeTitle}</h3>
             `;
             animeListContainer.appendChild(animeItem);
         });
+
+        // Now, add the event listeners for click handling
+        document.querySelectorAll('.anime-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const animeId = this.getAttribute('data-id'); // Get the animeId
+                window.location.href = `/anime/info/${animeId}`; // Redirect to the anime info page
+            });
+        });
     }
 
-    // Định nghĩa hàm getImageSrc nếu chưa có
+    // Define the getImageSrc function if not already defined
     function getImageSrc(anime) {
         if (anime && anime.node && anime.node.main_picture && anime.node.main_picture.large) {
             return anime.node.main_picture.large;
         }
-        return 'assets/images/default-image.jpg'; // Hình ảnh mặc định nếu không có
+        return 'assets/images/default-image.jpg'; // Default image if not available
     }
 
     // Function to create pagination buttons
-   // Function to create pagination buttons
     function createPagination(page) {
-    const paginationContainer = document.getElementById('pagination');
-    paginationContainer.innerHTML = '';
+        const paginationContainer = document.getElementById('pagination');
+        paginationContainer.innerHTML = '';
 
-    // Nút quay lại
-    if (page > 1) {
-        const prevButton = document.createElement('button');
-        prevButton.innerText = 'Previous Page';
-        prevButton.onclick = () => loadPage(page - 1);
-        paginationContainer.appendChild(prevButton);
-    }
-
-    // Hiển thị các nút trang
-    const startPage = Math.max(1, page - 1); // Trang bắt đầu
-    const endPage = Math.min(totalPages, page + 2); // Trang kết thúc
-
-    // Thêm nút cho các trang
-    for (let i = startPage; i <= endPage; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.innerText = i;
-        pageButton.onclick = () => loadPage(i);
-        if (i === page) {
-            pageButton.disabled = true; // Vô hiệu hóa nút cho trang hiện tại
+        // Previous button
+        if (page > 1) {
+            const prevButton = document.createElement('button');
+            prevButton.innerText = 'Previous Page';
+            prevButton.onclick = () => loadPage(page - 1);
+            paginationContainer.appendChild(prevButton);
         }
-        paginationContainer.appendChild(pageButton);
-    }
 
-    // Thêm dấu "..." nếu cần
-    if (endPage < totalPages) {
-        const ellipsis = document.createElement('span');
-        ellipsis.innerText = '...';
-        paginationContainer.appendChild(ellipsis);
-    }
+        // Page buttons
+        const startPage = Math.max(1, page - 1); // Start page
+        const endPage = Math.min(totalPages, page + 2); // End page
 
-    // Nút cho trang cuối
-    if (endPage < totalPages) {
-        const lastButton = document.createElement('button');
-        lastButton.innerText = totalPages;
-        lastButton.onclick = () => loadPage(totalPages);
-        paginationContainer.appendChild(lastButton);
-    }
-
-    // Nút tiếp theo
-    if (page < totalPages) {
-        const nextButton = document.createElement('button');
-        nextButton.innerText = 'Next Page';
-        nextButton.onclick = () => loadPage(page + 1);
-        paginationContainer.appendChild(nextButton);
-    }
-
-    // Ô nhập liệu cho số trang
-    const pageInput = document.createElement('input');
-    pageInput.type = 'number';
-    pageInput.min = 1;
-    pageInput.max = totalPages;
-    pageInput.placeholder = 'Nhập số trang';
-    paginationContainer.appendChild(pageInput);
-
-    // Nút "Go" để chuyển đến trang đã nhập
-    const goButton = document.createElement('button');
-    goButton.innerText = 'Go';
-    goButton.onclick = () => {
-        const pageNumber = parseInt(pageInput.value);
-        if (pageNumber >= 1 && pageNumber <= totalPages) {
-            loadPage(pageNumber);
-        } else {
-            alert('Vui lòng nhập số trang hợp lệ!');
+        // Add page buttons
+        for (let i = startPage; i <= endPage; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.innerText = i;
+            pageButton.onclick = () => loadPage(i);
+            if (i === page) {
+                pageButton.disabled = true; // Disable current page button
+            }
+            paginationContainer.appendChild(pageButton);
         }
-    };
-    paginationContainer.appendChild(goButton);
+
+        // Add ellipsis if needed
+        if (endPage < totalPages) {
+            const ellipsis = document.createElement('span');
+            ellipsis.innerText = '...';
+            paginationContainer.appendChild(ellipsis);
+        }
+
+        // Last page button
+        if (endPage < totalPages) {
+            const lastButton = document.createElement('button');
+            lastButton.innerText = totalPages;
+            lastButton.onclick = () => loadPage(totalPages);
+            paginationContainer.appendChild(lastButton);
+        }
+
+        // Next button
+        if (page < totalPages) {
+            const nextButton = document.createElement('button');
+            nextButton.innerText = 'Next Page';
+            nextButton.onclick = () => loadPage(page + 1);
+            paginationContainer.appendChild(nextButton);
+        }
+
+        // Input box for page number
+        const pageInput = document.createElement('input');
+        pageInput.type = 'number';
+        pageInput.min = 1;
+        pageInput.max = totalPages;
+        pageInput.placeholder = 'Enter page number';
+        paginationContainer.appendChild(pageInput);
+
+        // "Go" button to navigate to the entered page
+        const goButton = document.createElement('button');
+        goButton.innerText = 'Go';
+        goButton.onclick = () => {
+            const pageNumber = parseInt(pageInput.value);
+            if (pageNumber >= 1 && pageNumber <= totalPages) {
+                loadPage(pageNumber);
+            } else {
+                alert('Please enter a valid page number!');
+            }
+        };
+        paginationContainer.appendChild(goButton);
     }
+
     // Function to load data for pagination
     function loadPage(page) {
-        currentPage = page; // Cập nhật trang hiện tại
-        fetchAnime(currentPage); // Gọi hàm fetchAnime với trang hiện tại
+        currentPage = page; // Update current page
+        fetchAnime(currentPage); // Call fetchAnime with the current page
     }
 
-    // Xử lý sự kiện khi người dùng quay lại trang
+    // Handle when the user goes back to a previous page
     window.onpopstate = function(event) {
         if (event.state) {
-            currentPage = event.state.page; // Lấy trang từ state
-            fetchAnime(currentPage); // Gọi hàm fetchAnime với trang hiện tại
+            currentPage = event.state.page; // Get the page from state
+            fetchAnime(currentPage); // Call fetchAnime with the current page
         }
     };
 
