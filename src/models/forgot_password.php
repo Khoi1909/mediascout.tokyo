@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         // Tạo mật khẩu mới
         $new_password = bin2hex(random_bytes(4)); // Mật khẩu 8 ký tự
-        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-
+        
         // Cập nhật mật khẩu mới
-        $update_query = "UPDATE users SET password = '$hashed_password' WHERE email = '$email'";
+        $update_query = "UPDATE users SET password = '$new_password' WHERE email = '$email'";
+
         if ($conn->query($update_query) === TRUE) {
             // Gửi email
             $mail = new PHPMailer(true);
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mail->Host = 'smtp.gmail.com'; // SMTP server (vd: smtp.gmail.com)
                 $mail->SMTPAuth = true;
                 $mail->Username = 'contact.mediascout@gmail.com'; // Email gửi đi
-                $mail->Password = 'Media123scout'; // Mật khẩu ứng dụng
+                $mail->Password = 'dwhkzybikaytvcxu'; // Mật khẩu ứng dụng
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Mã hóa TLS
                 $mail->Port = 587; // Cổng SMTP (TLS thường là 587)
 
@@ -50,14 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $mail->AltBody = "Hello $username,\n\nYour new password is: $new_password\nPlease log in and change your password immediately.";
 
                 $mail->send();
-                echo "Your new password has been sent to your email.";
+                echo "<p class='success'>Your new password has been sent to your email.</p>";
             } catch (Exception $e) {
-                echo "Email could not be sent. Error: {$mail->ErrorInfo}";
+                echo "<p class='error'>Email could not be sent. Error: {$mail->ErrorInfo}</p>";
             }
         } else {
-            echo "Error updating the password.";
+            echo "<p class='error'>Error updating the password.</p>";
         }
     } else {
-        echo "Invalid email or username.";
+        echo "<p class='error'>Invalid email or username.</p>";
     }
 }
