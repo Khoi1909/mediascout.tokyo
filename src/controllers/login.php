@@ -8,6 +8,7 @@ class login extends Controller{
     }
     
     function forgot_password() {
+        $this->model("forgot_password");
         $this->view("loginlayout", [
             "Page"=>"forgot_password"
         ]);
