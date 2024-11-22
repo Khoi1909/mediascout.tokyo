@@ -23,21 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $result->fetch_assoc();
 
             if ($password === $user['password']) {
+                $_SESSION['displayname'] = $user['displayname']?: $user['username'] ;
                 $_SESSION['profile_pic'] = $user['profile_pic'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['logined_in'] = true;
 
-                // Xử lý "Stay logged in?"
-                if ($stayLoggedIn) {
-                    $token = bin2hex(random_bytes(16));
-                    setcookie("login_token", $token, time() + (86400 * 10), "/"); 
-
-                    // Lưu token vào cơ sở dữ liệu
-                    $sql = "UPDATE users SET login_token = ? WHERE username = ?";
-                    $updateStmt = $conn->prepare($sql);
-                    $updateStmt->bind_param("ss", $token, $username);
-                    $updateStmt->execute();
-                }
+                // Xử lý "Stay logged in: ĐANG PHÁT TRIỂN THÊM "
+//                if ($stayLoggedIn) {
+//                    $token = bin2hex(random_bytes(16));
+//                    setcookie("login_token", $token, time() + (86400 * 10), "/");
+//
+//                    // Lưu token vào cơ sở dữ liệu
+//                    $sql = "UPDATE users SET login_token = ? WHERE username = ?";
+//                    $updateStmt = $conn->prepare($sql);
+//                    $updateStmt->bind_param("ss", $token, $username);
+//                    $updateStmt->execute();
+//                }
 
                 header("Location:/home");
                 exit;
