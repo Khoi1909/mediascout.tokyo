@@ -23,10 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $result->fetch_assoc();
 
             if ($password === $user['password']) {
-                $_SESSION['displayname'] = $user['displayname']?: $user['username'] ;
-                $_SESSION['profile_pic'] = $user['profile_pic'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['logined_in'] = true;
+                // Kiểm tra xem người dùng đã xác thực email chưa
+                if ($user['is_verified'] == 0) {
+                    echo "<p class='error'>Your account has not been verified yet. Please check your email to verify your account.</p>";
+                } else {
+                    // Nếu đã xác thực, tiến hành đăng nhập
+                    $_SESSION['displayname'] = $user['displayname']?: $user['username'] ;
+                    $_SESSION['profile_pic'] = $user['profile_pic'];
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['logined_in'] = true;
 
                 // Xử lý "Stay logged in: ĐANG PHÁT TRIỂN THÊM "
 //                if ($stayLoggedIn) {
@@ -40,8 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //                    $updateStmt->execute();
 //                }
 
-                header("Location:/home");
-                exit;
+                    header("Location:/home");
+                    exit;
+                }
             } else {
                 echo "<p class='error'>Incorrect username or password.</p>";
             }

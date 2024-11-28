@@ -46,7 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Nội dung email
                 $mail->isHTML(true);
                 $mail->Subject = 'Your New Password';
-                $mail->Body = "Hello $username,<br><br>Your new password is: <strong>$new_password</strong><br>Please log in and change your password immediately.";
+                $mail->Body = "
+                    <div style='font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 10px;'>
+                        <h2 style='color: #333; text-align: center;'>Password Reset</h2>
+                        <p style='color: #555;'>Hi <strong>$username</strong>,</p>
+                        <p style='color: #555;'>You have requested to reset your password. Your new password is:</p>
+                        <p style='text-align: center; font-size: 18px; font-weight: bold; color: #007BFF;'>$new_password</p>
+                        <p style='color: #555;'>Please log in using this password and change it immediately to ensure your account's security.</p>
+                        <hr style='margin: 20px 0;'>
+                        <footer style='text-align: center; color: #999; font-size: 12px;'>
+                            <p>Thank you for using MediaScout!</p>
+                        </footer>
+                    </div>
+                ";
                 $mail->AltBody = "Hello $username,\n\nYour new password is: $new_password\nPlease log in and change your password immediately.";
 
                 $mail->send();
