@@ -1,7 +1,82 @@
+.genre-list{
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333333; /* Updated background color */
+    color: #ffffff; /* Ensuring text remains visible on dark background */
+    border-radius: 8px;
+    max-width: 1000px;
+    overflow: hidden; /* Hides overflow to make carousel effect */
+    text-align: center;
+}
+/* Adjust the genre buttons */
+.genre-button {
+    background-color: #555555;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on genre buttons */
+.genre-button:hover {
+    background-color: #777777;
+}
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Carousel itself */
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
 /* General container styles for search results */
 .search-results-title {
     color: #ffffff;
     text-align: center;
+}
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.3); /* Adjusted for dark background */
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    user-select: none;
+}
+
+/* Left arrow */
+.left-arrow {
+    left: 10px;
+}
+
+/* Right arrow */
+.right-arrow {
+    right: 10px;
+}
+
+/* Arrow hover effect */
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Enhanced hover visibility */
+}
+
+/* (Optional) If you want to increase the gap between the carousel items */
+.carousel {
+    gap: 20px; /* Adjust as needed for spacing between the anime items */
 }
 
 .search-results {
@@ -18,11 +93,9 @@
 /* Grid layout for anime items */
 .anime-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(4, 1fr); /* 3 columns */
     grid-auto-rows: auto; /* Auto height for rows */
     gap: 20px; /* Space between items */
-    height: calc((200px + 20px) * 5); /* 5 hàng với chiều cao và khoảng cách */
-    overflow-y: auto; /* Cuộn dọc nếu vượt quá */
 }
 
 /* Each anime item */
@@ -60,4 +133,40 @@ a {
 /* Hover effect for anime items */
 .anime-item:hover {
     background-color: #555555; /* Darker background on hover */
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #FFA500;
+    background-color: transparent;
+    color: #FFA500;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: white;
+}
+
+.pagination a.active {
+    background-color: #FFA500;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.pagination a:disabled {
+    color: #888;
+    cursor: not-allowed;
+    background-color: transparent;
 }

@@ -1,42 +1,49 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #121212; /* Nền đen */
     color: #000000; /* Chữ trắng */
 }
-h2{
-    color:#fff;
+
+h2 {
+    color: #fff;
     align-items: center;
 }
 
 /* Danh sách anime */
-/* Danh sách anime */
-.anime-list {
+.anime-list-section {
+    margin: 20px auto;
     padding: 20px;
-    background-color: #444; /* Màu nền cho danh sách anime */
-    margin-bottom: 20px;
-    border-radius: 5px;
-    display: flex; /* Sử dụng flexbox để sắp xếp theo chiều dọc */
-    flex-direction: column; /* Đặt chiều dọc cho danh sách */
-    gap: 15px; /* Khoảng cách giữa các item */
-    max-width: 100%; /* Giới hạn chiều rộng tối đa */
-    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+    background-color: #333333; /* Dark background for the results container */
+    color: #ffffff; /* Ensuring text remains visible on dark background */
+    border-radius: 8px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.anime-list {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* 4 cột */
+    grid-auto-rows: auto; /* Chiều cao tự động cho hàng */
+    gap: 20px; /* Khoảng cách giữa các item */
+    margin-bottom: 50px;
+    /* Không đặt chiều cao cố định, để chiều dài khung phụ thuộc vào nội dung */
 }
 
 .anime-item {
-    background-color: #fff;
+    background-color: #444444; /* Màu nền nhẹ hơn cho các item anime */
+    padding: 15px; /* Padding xung quanh nội dung */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    display: flex;
-    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center;
+    width: 100%; /* Chiều rộng của ô grid */
+    max-width: 200px; /* Đặt chiều rộng tối đa cho mỗi item */
 }
 
 .anime-item img {
-    width: 100px; /* Đặt chiều rộng cụ thể cho hình ảnh */
+    width: 100%; /* Hình ảnh chiếm toàn bộ ô grid */
+    max-height: 250px; /* Giới hạn chiều cao tối đa */
     height: auto; /* Giữ tỷ lệ khung hình */
     border-radius: 8px;
-    margin-right: 15px; /* Khoảng cách giữa hình ảnh và thông tin */
+    object-fit: cover; /* Ngăn chặn biến dạng hình ảnh */
 }
 
 .anime-info {
@@ -54,48 +61,103 @@ h2{
     margin: 0;
     color: #666; /* Màu chữ cho mô tả */
 }
+
 /* Pagination buttons */
-#pagination {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.page-btn {
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+/* Định dạng liên kết phân trang */
+#pagination a {
+    color: white; /* Màu chữ trắng cho các liên kết phân trang */
+    text-decoration: none; /* Loại bỏ dấu gạch chân */
+    margin: 0 5px; /* Khoảng cách giữa các nút phân trang */
+    padding: 10px 10px;
     border-radius: 5px;
-    cursor: pointer;
+    background-color: transparent; /* Màu nền trong suốt */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
 }
 
-.page-btn.active {
-    background-color: orange; /* Màu cam khi active */
-    color: white;
+/* Khi hover vào liên kết phân trang */
+#pagination a:hover {
+    color: #FFA500; /* Màu chữ cam khi hover */
+    background-color: rgba(255, 165, 0, 0.2); /* Màu nền nhạt khi hover */
 }
 
-.page-btn:hover {
-    background-color: #ddd; /* Khi hover vào nút sẽ có hiệu ứng */
+/* Định dạng nút phân trang hiện tại */
+#pagination a.active {
+    font-weight: bold;
+    color: #FFA500; /* Màu chữ cam cho nút trang hiện tại */
+    background-color: rgba(255, 165, 0, 0.1); /* Màu nền nhạt cho nút trang hiện tại */
 }
-#searchSection {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+
+/* Các nút Previous và Next */
+#pagination a.prev, #pagination a.next {
+    font-weight: bold;
+}
+
+.anime-item a {
+    color: inherit; /* Giữ nguyên màu chữ của phần tử cha (không đổi màu khi hover) */
+    text-decoration: none; /* Xóa gạch chân */
+}
+
+.anime-item a:hover {
+    color: #ffcc00; /* Thay đổi màu khi hover (có thể thay bằng màu khác) */
+    text-decoration: underline; /* Thêm gạch chân khi hover (nếu muốn) */
+}
+
+/* Search bar and filter buttons styling (for seasonal) */
+.search-bar {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    margin-bottom: 20px;
+    border: none; /* Loại bỏ khung của toàn bộ search bar */
 }
 
-#yearInput,
-#seasonInput {
-    width: 100px;
-    padding: 5px;
+#season-select, #year-input, #search-btn {
+    padding: 10px;
+    border-radius: 5px;
+    border: none; /* Loại bỏ border */
+    background-color:#666; /* Giữ nền trong suốt */
+    color: #FFA500;
+    font-size: 16px;
 }
 
-#fetchAnimeButton {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+#search-btn {
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: white;
+}
+/* Pagination buttons for seasonal*/
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #FFA500;
+    background-color: transparent;
+    color: #FFA500;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#pagination button:hover {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: white;
+}
+
+#pagination button:disabled {
+    color: #888;
+    cursor: not-allowed;
+    background-color: transparent;
 }
